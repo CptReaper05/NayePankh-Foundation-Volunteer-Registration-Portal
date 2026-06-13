@@ -14,7 +14,13 @@ const app = express();
 // 3. CONNECT TO ATLAS
 connectDB();
 
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 const volunteerRoutes = require('./routes/volunteerRoutes');
