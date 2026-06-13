@@ -115,7 +115,20 @@ NPF Volunteer Website/
    ```bash
    npm run dev
    ```
-5. Open your browser and navigate to `http://localhost:3000`.
+##### 5. Open your browser and navigate to `http://localhost:3000`.
+
+### 🌐 Vercel Multi-Service Deployment
+This repository is pre-configured for multi-service hosting on Vercel (orchestrated via `vercel.json`):
+* **Frontend**: Next.js service running on `/`.
+* **Backend**: Express API service running on `/_/backend`.
+
+To deploy on Vercel:
+1. Import the repository in Vercel.
+2. In the Vercel Project settings, configure the following **Environment Variables**:
+   * `NEXT_PUBLIC_API_URL` = `/_/backend/api` (this routes API traffic dynamically through Vercel's service proxy).
+   * `MONGO_URI` = *Your MongoDB Connection String*
+   * `JWT_SECRET` = *Your backend JWT authentication key*
+3. Deploy! Vercel will build both folders in isolated runtime containers.
 
 ---
 
