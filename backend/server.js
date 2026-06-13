@@ -15,7 +15,12 @@ const app = express();
 connectDB();
 
 app.use(cors({
-  origin: '*',
+  origin: [
+    'https://naye-pankh-foundation-volunteer-reg.vercel.app',
+    'http://localhost:3000',
+    'http://localhost:5000'
+  ],
+  credentials: true,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   preflightContinue: false,
   optionsSuccessStatus: 204,
